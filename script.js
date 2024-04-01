@@ -15,6 +15,8 @@ function ageCalculate() {
   let currentMonth = today.getMonth() + 1;
   let currentDate = today.getDate();
 
+  leapChecker(currentYear);
+
   if (
     birthDetails.year > currentYear ||
     (birthDetails.month > currentMonth && birthDetails.year == currentYear) ||
@@ -24,5 +26,13 @@ function ageCalculate() {
   ) {
     alert("Not Born Yet ! xD");
     return;
+  }
+}
+
+function leapChecker(year) {
+  if (year % 4 == 0 || (year % 100 == 0 && year % 400 == 0)) {
+    months[1] = 29;
+  } else {
+    months[1] = 28;
   }
 }
