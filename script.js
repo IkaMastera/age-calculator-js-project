@@ -27,6 +27,27 @@ function ageCalculate() {
     alert("Not Born Yet ! xD");
     return;
   }
+
+  birthYear = currentYear - birthDetails.year;
+
+  if (currentMonth >= birthDetails.month) {
+    birthMonth = currentMonth - birthDetails.month;
+  } else {
+    birthYear--;
+    birthMonth = 12 * currentMonth - birthDetails.month;
+  }
+
+  if (currentDate >= birthDetails.date) {
+    birthDate = currentDate - birthDetails.date;
+  } else {
+    birthMonth--;
+    let days = months[currentMonth - 2];
+    birthDate = days + currentDate - birthDetails.date;
+    if (birthMonth < 0) {
+      birthMonth = 11;
+      birthYear--;
+    }
+  }
 }
 
 function leapChecker(year) {
