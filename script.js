@@ -34,7 +34,7 @@ function ageCalculate() {
     birthMonth = currentMonth - birthDetails.month;
   } else {
     birthYear--;
-    birthMonth = 12 * currentMonth - birthDetails.month;
+    birthMonth = 12 + currentMonth - birthDetails.month;
   }
 
   if (currentDate >= birthDetails.date) {
@@ -48,6 +48,13 @@ function ageCalculate() {
       birthYear--;
     }
   }
+  displayResult(birthDate, birthMonth, birthYear);
+}
+
+function displayResult(bDate, bMonth, bYear) {
+  document.getElementById("years").textContent = bYear;
+  document.getElementById("months").textContent = bMonth;
+  document.getElementById("days").textContent = bDate;
 }
 
 function leapChecker(year) {
